@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<title>Rozcvička: funguje, ale je to špatně</title>
+<style>
+  body { font-family: sans-serif; max-width: 1100px; margin: 1rem auto; }
+  section { border-top: 2px solid #ccc; padding: .5rem 0; }
+  .dvojice { display: flex; gap: 1rem; }
+  .box { flex: 1; padding: .5rem; border: 2px solid; }
+  .spatne { border-color: #c00 } .dobre { border-color: #080 }
+  .box h3 { margin: 0 0 .5rem; font-size: 1rem; }
+  .spatne h3 { color: #c00 } .dobre h3 { color: #080 }
+  .ukazka { background: #fff; padding: .5rem; min-height: 3rem; }
+  .ukazka h1, .ukazka h2 { font-size: 1.4rem; margin: .3rem 0; }
+  pre { background: #f2f2f2; padding: .5rem; margin: .5rem 0 0; font-size: .95rem; }
+  details { margin-top: .4rem; } summary { cursor: pointer; font-weight: bold; }
+  .varovani { color: red }
+</style>
+</head>
+<body>
+<h1>Rozcvička: funguje, ale je to špatně</h1>
+<p>Vlevo kód, který „funguje“. Vpravo totéž správně. Vypadají skoro stejně.
+  Nejdřív nech třídu říct, co je vlevo špatně, pak rozklikni „Proč“.</p>
+<section>
+<h2>1. Nadpis</h2>
+<div class="dvojice">
+<div class="box spatne"><h3>Špatně</h3><div class="ukazka"><b>Novinky</b></div><pre>&lt;b&gt;Novinky&lt;/b&gt;</pre></div>
+<div class="box dobre"><h3>Správně</h3><div class="ukazka"><h1>Novinky</h1></div><pre>&lt;h1&gt;Novinky&lt;/h1&gt;</pre></div>
+</div>
+<details><summary>Proč</summary><p>tučný text není nadpis: čtečka ani Google ho za nadpis nepovažují, osnova stránky je prázdná.</p></details>
+</section>
+<section>
+<h2>2. Odstavce</h2>
+<div class="dvojice">
+<div class="box spatne"><h3>Špatně</h3><div class="ukazka">První věta.<br><br>
+Druhá věta.</div><pre>První věta.&lt;br&gt;&lt;br&gt;
+Druhá věta.</pre></div>
+<div class="box dobre"><h3>Správně</h3><div class="ukazka"><p>První věta.</p>
+<p>Druhá věta.</p></div><pre>&lt;p&gt;První věta.&lt;/p&gt;
+&lt;p&gt;Druhá věta.&lt;/p&gt;</pre></div>
+</div>
+<details><summary>Proč</summary><p>mezery mezi odstavci dělá CSS (margin), odstavec je p; br jen pro adresu nebo báseň.</p></details>
+</section>
+<section>
+<h2>3. Menu</h2>
+<div class="dvojice">
+<div class="box spatne"><h3>Špatně</h3><div class="ukazka"><div class="menu">
+  <a href="index.html">Úvod</a>
+</div></div><pre>&lt;div class="menu"&gt;
+  &lt;a href="index.html"&gt;Úvod&lt;/a&gt;
+&lt;/div&gt;</pre></div>
+<div class="box dobre"><h3>Správně</h3><div class="ukazka"><nav>
+  <a href="index.html">Úvod</a>
+</nav></div><pre>&lt;nav&gt;
+  &lt;a href="index.html"&gt;Úvod&lt;/a&gt;
+&lt;/nav&gt;</pre></div>
+</div>
+<details><summary>Proč</summary><p>div nic neznamená; nav řekne čtečce „tady je navigace“ a dá se přeskočit.</p></details>
+</section>
+<section>
+<h2>4. Obrázek</h2>
+<div class="dvojice">
+<div class="box spatne"><h3>Špatně</h3><div class="ukazka"><img src="foto.jpg"></div><pre>&lt;img src="foto.jpg"&gt;</pre></div>
+<div class="box dobre"><h3>Správně</h3><div class="ukazka"><img src="foto.jpg" alt="Třída 2.A na výletě"></div><pre>&lt;img src="foto.jpg" alt="Třída 2.A na výletě"&gt;</pre></div>
+</div>
+<details><summary>Proč</summary><p>bez alt nevidomý slyší jen „obrázek“, validátor hlásí chybu, Google neví, co na něm je.</p></details>
+</section>
+<section>
+<h2>5. Sloupce</h2>
+<div class="dvojice">
+<div class="box spatne"><h3>Špatně</h3><div class="ukazka"><table><tr>
+  <td>menu</td>
+  <td>obsah</td>
+</tr></table></div><pre>&lt;table&gt;&lt;tr&gt;
+  &lt;td&gt;menu&lt;/td&gt;
+  &lt;td&gt;obsah&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;</pre></div>
+<div class="box dobre"><h3>Správně</h3><div class="ukazka"><nav>menu</nav>
+<main>obsah</main>
+<!-- vedle sebe: CSS, prosinec --></div><pre>&lt;nav&gt;menu&lt;/nav&gt;
+&lt;main&gt;obsah&lt;/main&gt;
+&lt;!-- vedle sebe: CSS, prosinec --&gt;</pre></div>
+</div>
+<details><summary>Proč</summary><p>tabulka je pro data (rozvrh, ceník); rozložení stránky dělá CSS (flexbox).</p></details>
+</section>
+<section>
+<h2>6. Barva</h2>
+<div class="dvojice">
+<div class="box spatne"><h3>Špatně</h3><div class="ukazka"><p style="color: red">Pozor!</p>
+(a tak na 20 místech)</div><pre>&lt;p style="color: red"&gt;Pozor!&lt;/p&gt;
+(a tak na 20 místech)</pre></div>
+<div class="box dobre"><h3>Správně</h3><div class="ukazka"><style>.varovani { color: red }</style>
+<p class="varovani">Pozor!</p></div><pre>&lt;style&gt;.varovani { color: red }&lt;/style&gt;
+&lt;p class="varovani"&gt;Pozor!&lt;/p&gt;</pre></div>
+</div>
+<details><summary>Proč</summary><p>změna barvy = 20 úprav v HTML; s třídou jedna úprava v CSS.</p></details>
+</section>
+<section>
+<h2>7. Úrovně nadpisů</h2>
+<div class="dvojice">
+<div class="box spatne"><h3>Špatně</h3><div class="ukazka"><h1>Kroužky</h1>
+<h3>Programování</h3></div><pre>&lt;h1&gt;Kroužky&lt;/h1&gt;
+&lt;h3&gt;Programování&lt;/h3&gt;</pre></div>
+<div class="box dobre"><h3>Správně</h3><div class="ukazka"><h1>Kroužky</h1>
+<h2>Programování</h2></div><pre>&lt;h1&gt;Kroužky&lt;/h1&gt;
+&lt;h2&gt;Programování&lt;/h2&gt;</pre></div>
+</div>
+<details><summary>Proč</summary><p>osnova má díru; úrovně jdou h1 → h2 → h3 a nevybírají se podle velikosti písma.</p></details>
+</section>
+<section>
+<h2>8. Odkaz na disk</h2>
+<div class="dvojice">
+<div class="box spatne"><h3>Špatně</h3><div class="ukazka"><a href="C:\Users\Jan\web\kontakt.html">Kontakt</a></div><pre>&lt;a href="C:\Users\Jan\web\kontakt.html"&gt;Kontakt&lt;/a&gt;</pre></div>
+<div class="box dobre"><h3>Správně</h3><div class="ukazka"><a href="kontakt.html">Kontakt</a></div><pre>&lt;a href="kontakt.html"&gt;Kontakt&lt;/a&gt;</pre></div>
+</div>
+<details><summary>Proč</summary><p>absolutní cesta na disk; na serveru žádné C:\Users není, doma to jde.</p></details>
+</section>
+<section>
+<h2>9. Dva h1</h2>
+<div class="dvojice">
+<div class="box spatne"><h3>Špatně</h3><div class="ukazka"><h1>Kroužky</h1>
+<h1>Programování</h1></div><pre>&lt;h1&gt;Kroužky&lt;/h1&gt;
+&lt;h1&gt;Programování&lt;/h1&gt;</pre></div>
+<div class="box dobre"><h3>Správně</h3><div class="ukazka"><h1>Kroužky</h1>
+<h2>Programování</h2></div><pre>&lt;h1&gt;Kroužky&lt;/h1&gt;
+&lt;h2&gt;Programování&lt;/h2&gt;</pre></div>
+</div>
+<details><summary>Proč</summary><p>h1 je název dokumentu a je jen jednou; další nadpisy jsou h2.</p></details>
+</section>
+<section>
+<h2>10. Zdůraznění</h2>
+<div class="dvojice">
+<div class="box spatne"><h3>Špatně</h3><div class="ukazka"><i>Důležité:</i> přihlášky do pátku.</div><pre>&lt;i&gt;Důležité:&lt;/i&gt; přihlášky do pátku.</pre></div>
+<div class="box dobre"><h3>Správně</h3><div class="ukazka"><strong>Důležité:</strong> přihlášky do pátku.</div><pre>&lt;strong&gt;Důležité:&lt;/strong&gt; přihlášky do pátku.</pre></div>
+</div>
+<details><summary>Proč</summary><p>i a b jsou jen vzhled; strong a em nesou význam (čtečka změní hlas).</p></details>
+</section>
+</body>
+</html>

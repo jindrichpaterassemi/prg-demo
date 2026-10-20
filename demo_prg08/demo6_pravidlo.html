@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head><meta charset="utf-8"><title>Pravidlo</title>
+<style>
+  h1 { color: red }                        /* platí */
+  p { colour: green; font-size: 1.4rem }   /* colour neplatí, font-size platí */
+  em { color = purple }                    /* rovnítko: deklarace neplatí */
+  // tohle CSS nezná
+  strong { color: orange }                 /* rozbité řádkem nad ním */
+  nav a { color: green }                   /* jen odkazy uvnitř nav */
+  h2 color: blue;                          /* bez závorek: sežere i další pravidlo */
+  footer { color: gray }
+</style>
+</head>
+<body>
+<h1>h1 je červený</h1>
+<h2>h2 modrý? Ne, pravidlo nemá závorky</h2>
+<p>Odstavec je větší (font-size platí), ale ne zelený (colour neexistuje).
+  <em>em fialový? Ne, rovnítko.</em> <strong>strong oranžový? Ne, // ho rozbilo.</strong></p>
+<nav><a href="#">Odkaz v nav – zelený</a></nav>
+<p><a href="#">Odkaz mimo nav – výchozí modrá</a></p>
+<footer>Zápatí šedé? Ne, sežralo ho h2 bez závorek.</footer>
+<p style="color: red">Inline: červený, přebije všechno kromě !important.</p>
+</body>
+</html>

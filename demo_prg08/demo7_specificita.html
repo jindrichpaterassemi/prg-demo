@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head><meta charset="utf-8"><title>Specificita</title>
+<style>
+  #menu a    { color: red }     /* 1-0-1 */
+  nav .odkaz { color: blue }    /* 0-1-1 */
+  .odkaz     { color: green }   /* 0-1-0 */
+  nav a      { color: orange }  /* 0-0-2 */
+  a          { color: gray }    /* 0-0-1 */
+</style>
+</head>
+<body>
+<nav id="menu"><a class="odkaz" href="#">Úvod</a> <a class="odkaz" href="#">Kroužky</a></nav>
+<p><a class="odkaz" href="#">Odkaz s třídou mimo nav</a> · <a href="#">Odkaz bez třídy</a></p>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head><meta charset="utf-8"><title>Dědičnost</title>
+<style>
+  body { font-family: Georgia, serif; color: darkgreen; border: 3px solid red; padding: 1rem; }
+  .px  { font-size: 32px }
+  .rem { font-size: 2rem }
+  .em li { font-size: 1.2em }
+</style>
+</head>
+<body>
+<h1>Dědí se písmo a barva, rámeček ne</h1>
+<p>Odstavec zdědil Georgii i zelenou. <a href="#">Odkaz zůstal modrý</a>: prohlížeč má pro a vlastní pravidlo.</p>
+<p><button>Tlačítko nedědí písmo</button> <input value="input taky ne"></p>
+<p class="px">32px: při zvětšení písma v prohlížeči se nezmění</p>
+<p class="rem">2rem: roste s nastavením uživatele</p>
+<ul class="em"><li>1,2em <ul><li>1,2 × 1,2 <ul><li>1,2 × 1,2 × 1,2: em se násobí, rem ne</li></ul></li></ul></li></ul>
+</body>
+</html>
