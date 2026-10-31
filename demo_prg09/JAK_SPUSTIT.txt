@@ -1,0 +1,38 @@
+Jak spustit soubory ve složce demo_prg09
+=========================================
+
+Soubory .php potřebují server. Server si pustíš na vlastním počítači;
+stejný postup je v listu PRG-09, část 2. Nic se neinstaluje: PHP je jen
+rozbalený zip, smazáním složky zmizí.
+
+  1. Udělej si složku web-php (na Ploše nebo v Dokumentech) a zkopíruj do
+     ní soubory z téhle složky (demo0_staticka.html až demo4_pozdrav.php).
+  2. Stáhni PHP pro Windows: https://www.php.net/downloads.php?os=windows
+     -> "VS17 x64 Non Thread Safe" -> Zip
+     (php-8.5.12-1-nts-Win32-vs17-x64.zip, 35 MB; číslo verze se časem mění).
+  3. Zip rozbal do složky web-php\php (pravé tlačítko -> Extrahovat vše,
+     cílová složka ...\web-php\php). Musí existovat web-php\php\php.exe.
+  4. Otevři složku web-php ve VS Code (File -> Open Folder), pak
+     Terminal -> New Terminal a napiš:
+
+         .\php\php.exe -S localhost:8000
+
+     Vypíše "Development Server (http://localhost:8000) started".
+  5. V prohlížeči otevři http://localhost:8000/demo1_hello.php
+     (a demo2_cas.php, demo3_smycka.php, demo4_pozdrav.php?jmeno=Eva).
+  6. Server běží, dokud je terminál otevřený. Ukončíš ho Ctrl+C.
+
+Když to nejde:
+  - "VCRUNTIME140.dll was not found": chybí knihovna od Microsoftu. Doma
+    nainstaluj https://aka.ms/vs/17/release/vc_redist.x64.exe (chce práva
+    správce). Ve škole plán B níže.
+  - "Failed to listen on localhost:8000": port je obsazený. Použij 8001
+    (v příkazu i v adrese).
+  - "php.exe is not recognized" / "není rozpoznán": terminál není ve složce
+    web-php, nebo chybí .\ na začátku.
+  - 404 Not Found: překlep ve jménu souboru, nebo server běží v jiné složce.
+  - "Nelze se připojit" / "This site can't be reached": server neběží
+    (zavřený terminál nebo Ctrl+C).
+
+Plán B bez PHP: kód z ostrůvků <?php ... ?> vlož na https://3v4l.org/ (Run).
+Uvidíš surový výstup, HTML značky jako text; $_GET a formulář tam nefungují.

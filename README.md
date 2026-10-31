@@ -21,6 +21,7 @@ v komentářích nebo přímo v textu stránky.
 | Složka / soubor | Téma |
 |---|---|
 | `demo_prg08/` | říjen 2026: DOM, kostra stránky, sémantika, cesty, CSS pravidlo, specificita, dědičnost |
+| `demo_prg09/` | listopad 2026: PHP – statická stránka vs. program na serveru; server na vlastním počítači |
 
 ### demo_prg08 (výklad PRG-08, 20. 10. 2026)
 
@@ -37,4 +38,20 @@ v komentářích nebo přímo v textu stránky.
 | `demo7_specificita.html` | pět pravidel na jeden odkaz; které vyhraje a proč |
 | `demo8_dedicnost.html` | co se dědí z body a co ne; px vs. rem vs. em |
 
-Soubory nic neodesílají a nepotřebují internet.
+### demo_prg09 (výklad PRG-09, 3. 11. 2026)
+
+| Soubor | Co ukazuje |
+|---|---|
+| `demo0_staticka.html` | statická stránka: server pošle soubor, jak leží |
+| `demo1_hello.php` | PHP Hello world: ostrůvek `<?php echo … ?>` uvnitř HTML; v Ctrl+U už žádné PHP není |
+| `demo2_cas.php` | čas serveru: každé F5 vyrobí stránku znovu |
+| `demo3_smycka.php` | cyklus `for` na serveru napíše tabulku funkce y = 2x + 1 |
+| `demo4_pozdrav.php` | `$_GET`, `htmlspecialchars`, formulář s `method="get"` |
+| `JAK_SPUSTIT.txt` | jak si pustit PHP server na vlastním počítači (zip z php.net, nic se neinstaluje) |
+
+PHP soubory **nejdou otevřít poklepáním** – potřebují server. Postup krok za
+krokem je v `JAK_SPUSTIT.txt` (stejný jako v listu PRG-09, část 2). Bez PHP
+jde kód z ostrůvků vložit na [3v4l.org](https://3v4l.org/), ale `$_GET`
+a formulář tam nefungují.
+
+Soubory z `demo_prg08` nic neodesílají a nepotřebují internet.
