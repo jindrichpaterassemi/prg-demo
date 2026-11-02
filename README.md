@@ -47,11 +47,16 @@ v komentářích nebo přímo v textu stránky.
 | `demo2_cas.php` | čas serveru: každé F5 vyrobí stránku znovu |
 | `demo3_smycka.php` | cyklus `for` na serveru napíše tabulku funkce y = 2x + 1 |
 | `demo4_pozdrav.php` | `$_GET`, `htmlspecialchars`, formulář s `method="get"` |
-| `JAK_SPUSTIT.txt` | jak si pustit PHP server na vlastním počítači (zip z php.net, nic se neinstaluje) |
+| `JAK_SPUSTIT.txt` | jak si pustit PHP server: bez instalace v GitHub Codespaces, nebo doma ze zipu z php.net |
 
-PHP soubory **nejdou otevřít poklepáním** – potřebují server. Postup krok za
-krokem je v `JAK_SPUSTIT.txt` (stejný jako v listu PRG-09, část 2). Bez PHP
-jde kód z ostrůvků vložit na [3v4l.org](https://3v4l.org/), ale `$_GET`
-a formulář tam nefungují.
+PHP soubory **nejdou otevřít poklepáním** – potřebují server. Nejrychlejší
+cesta bez instalace je GitHub Codespaces se šablonou
+[php-start](https://github.com/jindrichpaterassemi/php-start): otevři
+[codespaces.new/jindrichpaterassemi/php-start?quickstart=1](https://codespaces.new/jindrichpaterassemi/php-start?quickstart=1),
+Create new codespace, v terminálu `php -S localhost:8000`, Open in Browser.
+Dema z této složky tam už jsou (`demo/`). Doma na Windows jde PHP i ze zipu,
+postup krok za krokem je v `JAK_SPUSTIT.txt` (stejný jako v listu PRG-09,
+část 2). Bez PHP jde kód z ostrůvků vložit na [3v4l.org](https://3v4l.org/),
+ale `$_GET` a formulář tam nefungují.
 
 Soubory z `demo_prg08` nic neodesílají a nepotřebují internet.

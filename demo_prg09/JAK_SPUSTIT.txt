@@ -1,9 +1,18 @@
 Jak spustit soubory ve složce demo_prg09
 =========================================
 
-Soubory .php potřebují server. Server si pustíš na vlastním počítači;
-stejný postup je v listu PRG-09, část 2. Nic se neinstaluje: PHP je jen
-rozbalený zip, smazáním složky zmizí.
+Soubory .php potřebují server. Dvě cesty, obě jsou v listu PRG-09, část 2:
+
+A) Bez instalace, ve škole i doma: GitHub Codespaces (počítač půjčený od
+   GitHubu, VS Code v prohlížeči; zdarma 60 hodin měsíčně, stačí účet
+   na GitHubu). Odkaz:
+       https://codespaces.new/jindrichpaterassemi/php-start?quickstart=1
+   Create new codespace -> Terminal -> php -S localhost:8000 -> Open in
+   Browser. Dema z téhle složky tam už jsou (složka demo), postup je
+   v README, které se samo otevře.
+
+B) Na vlastním počítači s Windows: nic se neinstaluje, PHP je jen rozbalený
+   zip, smazáním složky zmizí.
 
   1. Udělej si složku web-php (na Ploše nebo v Dokumentech) a zkopíruj do
      ní soubory z téhle složky (demo0_staticka.html až demo4_pozdrav.php).
@@ -25,7 +34,7 @@ rozbalený zip, smazáním složky zmizí.
 Když to nejde:
   - "VCRUNTIME140.dll was not found": chybí knihovna od Microsoftu. Doma
     nainstaluj https://aka.ms/vs/17/release/vc_redist.x64.exe (chce práva
-    správce). Ve škole plán B níže.
+    správce). Ve škole cesta A (Codespaces).
   - "Failed to listen on localhost:8000": port je obsazený. Použij 8001
     (v příkazu i v adrese).
   - "php.exe is not recognized" / "není rozpoznán": terminál není ve složce
@@ -34,5 +43,6 @@ Když to nejde:
   - "Nelze se připojit" / "This site can't be reached": server neběží
     (zavřený terminál nebo Ctrl+C).
 
-Plán B bez PHP: kód z ostrůvků <?php ... ?> vlož na https://3v4l.org/ (Run).
-Uvidíš surový výstup, HTML značky jako text; $_GET a formulář tam nefungují.
+Plán C bez PHP i bez GitHubu: kód z ostrůvků <?php ... ?> vlož na
+https://3v4l.org/ (Run). Uvidíš surový výstup, HTML značky jako text;
+$_GET a formulář tam nefungují.
